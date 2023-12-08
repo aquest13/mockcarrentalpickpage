@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Car Rental</title>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+
+    <!-- Latest compiled and minified CSS -->
+    <link
+      rel="stylesheet"
+      href="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    />
+
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+
+    <!-- Popper JS -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+    <!-- Latest compiled JavaScript -->
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"></script>
+
+    <!-- Import the full version of jQuery which we use for our jQuery code -->
+    <script
+      src="https://code.jquery.com/jquery-3.4.1.min.js"
+      integriunlty="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <!-- the start of the pages container -->
+    <div class="container">
+      <div class="row" style="text-align: center; color: red">
+        <!-- start of header row -->
+        <div class="col-md-12">
+          <h1>Choose your rental</h1>
+          <hr />
+          <!-- horizontal line -->
+        </div>
+      </div>
+      <!-- end of header row -->
+
+      <div class="row">
+        <!-- the start of the button row div -->
+        <div class="col-md-3">
+          <h4>Choose Vehicle Color</h4>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label
+              class="btn btn-primary active"
+              onclick="filterVehicleColor('black')"
+            >
+              <input type="radio" name="colors" autocomplete="off" checked />
+              Black
+            </label>
+            <label
+              class="btn btn-primary"
+              onclick="filterVehicleColor('white')"
+            >
+              <input type="radio" name="colors" autocomplete="off" /> White
+            </label>
+            <label class="btn btn-primary" onclick="filterVehicleColor('red')">
+              <input type="radio" name="colors" autocomplete="off" /> Red
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-3" style="text-align: center">
+          <h4>Choose Vehicle Type</h4>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label
+              class="btn btn-warning active"
+              onclick="filterVehicleType('car')"
+            >
+              <input type="radio" name="colors" autocomplete="off" checked />
+              Car
+            </label>
+            <label class="btn btn-warning" onclick="filterVehicleType('truck')">
+              <input type="radio" name="colors" autocomplete="off" /> Truck
+            </label>
+            <label
+              class="btn btn-warning"
+              onclick="filterVehicleType('motorcycle')"
+            >
+              <input type="radio" name="colors" autocomplete="off" /> Motorcycle
+            </label>
+          </div>
+        </div>
+
+        <div class="col-md-3" style="text-align: center">
+          <h4>Choose Transmission</h4>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label
+              class="btn btn-danger active"
+              onclick="filterVehicleTransmission('manual')"
+            >
+              <input type="radio" name="colors" autocomplete="off" checked />
+              Manual
+            </label>
+            <label
+              class="btn btn-danger"
+              onclick="filterVehicleTransmission('automatic')"
+            >
+              <input type="radio" name="colors" autocomplete="off" /> Auto
+            </label>
+            <label
+              class="btn btn-danger"
+              onclick="filterVehicleTransmission('selfdriving')"
+            >
+              <input type="radio" name="colors" autocomplete="off" />
+              Self-Driving
+            </label>
+          </div>
+        </div>
+        <div class="col-md-3" style="text-align: center">
+          <h4>Choose Price Range</h4>
+          <div class="btn-group btn-group-toggle" data-toggle="buttons">
+            <label
+              class="btn btn-success active"
+              onclick="filterVehiclePrice('standard')"
+            >
+              <input type="radio" name="colors" autocomplete="off" checked />
+              Standard
+            </label>
+            <label
+              class="btn btn-success"
+              onclick="filterVehiclePrice('expensive')"
+            >
+              <input type="radio" name="colors" autocomplete="off" /> Expensive
+            </label>
+          </div>
+        </div>
+      </div>
+      <!-- end of the button div -->
+      <div class="row">
+        <!--start of the car images 1st row -->
+        <div class="col-md-3">
+          <img
+            class="carImage black car automatic standard"
+            src="https://cdn.pixabay.com/photo/2015/01/19/13/51/car-604019__340.jpg"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car manual expensive"
+            src="https://cdn.pixabay.com/photo/2012/04/12/23/47/car-30984__340.png"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black car manual standard"
+            src="https://cdn.pixabay.com/photo/2013/07/12/12/45/sports-car-146185__340.png"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.pixabay.com/photo/2015/12/08/00/28/car-1081742_960_720.jpg"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 1st row -->
+
+      <div class="row">
+        <!--start of the car images 2nd row -->
+        <div class="col-md-3">
+          <img
+            class="carImage red truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredtruck.jpeg?v=1583961130870"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblacktruck1.jpeg?v=1583961517429"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblacktruck2.jpeg?v=1583961528956"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitetruck2.jpeg?v=1583961612662"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 2nd row -->
+
+      <div class="row">
+        <!--start of the car images 3rd row -->
+        <div class="col-md-3">
+          <img
+            class="carImage black truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblacktruck3.jpeg?v=1583961538841"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black car manual standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblackcar1.jpeg?v=1583962592126"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar1.jpeg?v=1583962624966"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar3.jpeg?v=1583962720763"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 3rd row -->
+
+      <div class="row">
+        <!--start of the car images 4th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage white truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitetruck.jpeg?v=1583961600898"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredtruck5.jpeg?v=1583961586067"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitetruck4.jpeg?v=1583961626606"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredtruck4.jpeg?v=1583961573833"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 4th row -->
+
+      <div class="row">
+        <!--start of the car images 5th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar1.jpeg?v=1583962647212"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar3.jpeg?v=1583962656649"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar4.jpeg?v=1583962688315"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar4.jpeg?v=1583962702788"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 5th row -->
+
+      <div class="row">
+        <!--start of the car images 6th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage red car manual expensive"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar2.jpeg?v=1583962670652"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblackcar6.jpeg?v=1583969174443"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblackcar7.jpeg?v=1583969182834"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblackcar8.jpeg?v=1583969194264"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 6th row -->
+
+      <div class="row">
+        <!--start of the car images 7th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage black car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblackcar11.jpeg?v=1583969203467"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblacktruck4.jpeg?v=1583969220717"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black truck automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fblacktruck9.jpeg?v=1583969232472"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar5.jpeg?v=1583969255302"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 7th row -->
+
+      <div class="row">
+        <!--start of the car images 8th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar7.jpeg?v=1583969373753"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic expensive"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar6.jpeg?v=1583969362971"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fwhitecar5.jpeg?v=1583969348194"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car automatic standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fredcar8.jpeg?v=1583969301400"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 8th row -->
+      <div class="row">
+        <!--start of the car images 9th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage black motorcycle manual standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fmc3.jpeg?v=1584124703882"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black motorcycle manual expensive"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fmc4.jpg?v=1584124712272"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red motorcycle manual standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fmcycle1.jpeg?v=1584124720380"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage black motorcycle manual standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fmcycle2.jpeg?v=1584124729836"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 9th row -->
+      <div class="row">
+        <!--start of the car images 10th row -->
+        <div class="col-md-3">
+          <img
+            class="carImage white car selfdriving standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fsd1.jpeg?v=1584124737316"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car selfdriving standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fsd2.jpeg?v=1584124744299"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage white car selfdriving standard"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fsd3.jpeg?v=1584124762969"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+        <div class="col-md-3">
+          <img
+            class="carImage red car selfdriving expensive"
+            src="https://cdn.glitch.com/adb128b4-043f-4bd5-80fd-3660a5f577a7%2Fsd4.jpg?v=1584124776367"
+            height="100%"
+            width="100%"
+            style="padding: 20px"
+          />
+        </div>
+      </div>
+      <!--end of the car images 10th row -->
+      <div class="row">
+        <div class="col-md-10">
+          <!-- this div and next are for the showAll bttn. -->
+        </div>
+        <div class="col-md-2">
+          <button class="btn btn-dark" onclick="showAllVehicles()">
+            Show All
+          </button>
+        </div>
+      </div>
+      <!-- jquery -should be able to filter through the vehicles with the click of the button -->
+      <script>
+        // Global Variables - every time a button is clicked one of these gets updated.
+        // these are our Filters - filter by vehicle type, color and transmission
+        // by default, all vehicles are selected. That's why there are values already assigned to the variables below
+        var selectedVehicleColor = "black"; // "black white red";
+        var selectedVehicleType = "car"; // "car truck";
+        var selectedVehicleTransmission = "automatic"; // "manual automatic";
+        var selectedVehiclePrice = "standard"; //"expensive";
+
+        $$(document).ready(function () {
+          // in case we need to do some jquery code as soon as the webpage/document is done loading.
+
+          hideAllVehicles(); //hide all vehicles
+
+          showHideVehicles(); // figure out which vehicles to hide and which to show
+        });
+
+        function filterVehicleType(vehicleType) {
+          // hide all vehicles
+          // set selectedVehicleType equal to the vehicleType parameter
+          // show all vehicles with classes that match all the 'selected' variables
+
+          $(".carImage").fadeOut(1000);
+          selectedVehicleType = vehicleType;
+          showHideVehicles();
+        }
+
+        function filterVehicleColor(vehicleColor) {
+          // hide all vehicles
+          // set selectedVehicleColor equal to the vehicleColor parameter
+          // show all vehicles with classes that match all the 'selected' variables
+
+          $(".carImage").fadeOut(1000);
+          selectedVehicleColor = vehicleColor;
+
+          showHideVehicles();
+        }
+
+        function filterVehicleTransmission(vehicleTransmission) {
+          $(".carImage").fadeOut(1000);
+          selectedVehicleTransmission = vehicleTransmission;
+
+          showHideVehicles();
+        }
+        function filterVehiclePrice(vehiclePrice) {
+          $(".carImage").fadeOut(1000);
+          selectedVehiclePrice = vehiclePrice;
+
+          showHideVehicle();
+        }
+
+        function showHideVehicles() {
+          $(".carImage").each(function (index, element) {
+            if (
+              $(this).hasClass(selectedVehicleColor) &&
+              $(this).hasClass(selectedVehicleType) &&
+              $(this).hasClass(selectedVehicleTransmission)
+            ) {
+              $(this).fadeIn();
+            } else {
+              // dont fade in
+            }
+          });
+        }
+
+        function hideAllVehicles() {
+          $(".carImage").hide();
+        }
+
+        function showAllVehicles() {
+          $(".carImage").fadeIn();
+        }
+      </script>
+    </div>
+    <!-- end of container div -->
+
+    <!-- include the Glitch button to show what the webpage is about and
+          to make it easier for folks to view source and remix -->
+    <div
+      class="glitchButton"
+      style="position: fixed; top: 20px; right: 20px"
+    ></div>
+    <script src="https://button.glitch.me/button.js"></script>
+  </body>
+</html>
