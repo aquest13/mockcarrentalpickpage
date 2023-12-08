@@ -1,4 +1,4 @@
-# mockcarrentalpickpage
+# Car Rental Web App
 a mock pge choosing different car rentals, js 
 ChatGPT
 Car Rental Web App
